@@ -1,0 +1,36 @@
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text": "shutdown"
+}
+
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text": "lcok"
+}
+
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text": "reboot"
+}
+
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text": "hibernate"
+}
+
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text": "suspend"
+}
+
+
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text": "logout"
+}

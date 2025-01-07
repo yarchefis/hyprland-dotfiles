@@ -1,0 +1,160 @@
+* {
+	font-family: JetBrainsMono, Symbols Nerd Font;
+	font-weight: bold;
+	font-size: 1px;
+	min-height: 0;
+}
+
+@define-color bg #1c1c1c;
+@define-color bg2 #2c2c2c;
+@define-color bg3 #4d4d4d;
+@define-color fg #D0CFCC;
+@define-color blue #00ccff;
+@define-color red #F66151;
+@define-color wh #ffffff;
+
+window#waybar {
+	background-color: transparent;
+	border-bottom: 0px solid #ffffff;
+	color: #ffffff;
+	border-radius: 12;
+}
+
+
+
+#image{
+	min-height: 0;
+	border: none;
+	border-radius: 12;
+	background-color: @bg;
+	margin: 2px 5px 0px 0px;
+	padding: 0px 8px;
+	color: @fg;
+}
+#image:hover {
+	background-color: @bg2;
+}
+
+
+#workspaces {
+	padding: 4px 17px;
+	margin: 2px 7px;
+	color: @fg;
+	background-color: @bg;
+	border-radius: 12;
+}
+#workspaces:hover {
+	background-color: @bg2;
+}
+#workspaces button {
+	padding: 0px 0px;
+	margin: 10px 5px;
+	border-radius: 15px;
+	border-color: @bg3;
+	background-color: @bg3;
+	color: @fg;
+}
+#workspaces button:hover {
+}
+#workspaces button.active {
+	padding: 0px;
+	margin: 10px 4px;
+	border-radius: 35;
+	background-color: @wh;
+	color: @wh;
+}
+#workspaces button.focused {
+	margin: 0px;
+	background-color: @fg;
+	color: @fg;
+}
+#workspaces button.urgent {
+	background-color: #eb4d4b;
+	padding: 0px 12px;
+}
+
+
+#custom-rec,
+#custom-print,
+#custom-fm {
+	padding: 0px 10px;
+	margin: 2px 5px;
+	color: @fg;
+	background-color: @bg;
+	border: none;
+	border-radius: 12;
+	font-size: 16px;
+}
+#custom-rec:hover {
+	background-color: @bg2;
+}
+#custom-print:hover {
+	background-color: @bg2;
+}
+#custom-fm:hover {
+	background-color: @bg2;
+}
+
+
+#clock,
+#pulseaudio,
+#language,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#custom-power {
+	padding: 0px 14px;
+	margin: 2px 7px;
+	color: @fg;
+	background-color: @bg;
+	border: none;
+	border-radius: 12;
+	font-size: 14px;
+}
+
+#custom-power{
+	font-size: 16px;
+	margin: 2px 0px 2px 7px;
+}
+
+#clock:hover {
+	color: @blue;
+}
+
+#pulseaudio.microphone{
+	margin: 2px 7px 2px 0px;
+	border-radius: 0 12 12 0;
+	padding: 0px 14px 0px 7px;
+}
+#pulseaudio.volume{
+	margin: 2px 0px 2px 7px;
+	border-radius: 12 0 0 12;
+	padding: 0px 7px 0px 14px;
+}
+#pulseaudio:hover {
+	color: @blue;
+}
+#language:hover {
+	color: @blue;
+	background-color: @bg;
+}
+#custom-power:hover {
+	color: @red;
+	background-color: @bg;
+}
+
+#tray {
+	background-color: @bg;
+	font-size: 14px;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+	font-size: 14px;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: #eb4d4b;
+	font-size: 14px;
+}

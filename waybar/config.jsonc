@@ -1,0 +1,116 @@
+// -*- mode: jsonc -*-
+{
+
+	"height": 30,
+	"width": 1880,
+	"margin-top": 10,
+	"margin-left": 15,
+	"margin-right": 15,
+
+	"modules-left": [
+		"image#menu",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"custom/media"
+	],
+	"modules-right": [
+		"pulseaudio#volume",
+		"pulseaudio#microphone",
+		"hyprland/language",       
+		"tray",
+		"clock",
+		"custom/power"
+    ],
+
+	"image#menu": {
+		"path": "/home/yardev/.config/waybar/logo.svg",
+		"size": 20,
+		"on-click": "pkill wofi || wofi --show drun -x 15 -y 15 --height 35% --width 20%"
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+			"urgent": " ",
+			"active": " ",
+			"default": " "
+			},
+		"tooltip": false
+	},
+
+
+	"custom/media": {
+	"format": "{icon} {0}",
+		"return-type": "json",
+		"format-icons": {
+			"Playing": "",
+			"Paused": ""
+		},
+		"max-length": 50,
+		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"tooltip": false
+	},
+
+
+
+	"pulseaudio#volume": {
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": " {icon} {volume}%",
+		"format-muted": "  mute",
+		"tooltip-format": "{desc}",
+		"format-icons": {
+			"headphone": " ",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pwvucontrol",
+		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"tooltip": false
+	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "  mute",
+		"on-click": "pwvucontrol",
+		"on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 10%+ -l 1.0",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 10%- -l 1.0",
+		"tooltip": false
+	},
+
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "EN",
+		"format-ru": "RU",
+		"on-scroll-up": "hyprctl switchxkblayout all next",
+		"on-scroll-down": "hyprctl switchxkblayout all prev"
+	},
+
+	"tray": {
+	"icon-size": 15,
+		"spacing": 15,
+		"tooltip": false
+	},
+
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%H:%M}",
+		"format-alt": "{:%Y-%m-%d}",
+		"tooltip": false
+	},
+
+	"custom/power": {
+		"format" : "⏻",
+		"tooltip": false,
+		"on-click": "wlogout"
+		}
+	}
+}
