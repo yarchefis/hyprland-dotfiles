@@ -28,7 +28,7 @@
 sudo pacman -S adw-gtk-theme dunst git grim gtk3 hyprland hyprlock hyprpaper \
 kitty kvantum nemo neofetch nwg-look pipewire playerctl qt5ct qt6ct sddm \
 slurp swayimg ttf-jetbrains-mono ttf-jetbrains-mono-nerd waybar wl-clipboard \
-wofi xorg
+wofi xorg fish
 ```
 
 ### Clone and Install Yay from AUR
@@ -47,6 +47,11 @@ yay -S adwaita-qt-git wlogout
 ```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+```
+
+### Default fish installation
+```bash
+chsh -s $(which fish)
 ```
 
 ### Note on Configuration Files
