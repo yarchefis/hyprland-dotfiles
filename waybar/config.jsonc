@@ -24,7 +24,7 @@
     ],
 
 	"image#menu": {
-		"path": "/home/yardev/.config/waybar/logo.svg",
+		"path": "/home/yardev/.config/waybar/logo3.svg",
 		"size": 20,
 		"on-click": "pkill wofi || wofi --show drun -x 15 -y 15 --height 35% --width 20%"
 	},
